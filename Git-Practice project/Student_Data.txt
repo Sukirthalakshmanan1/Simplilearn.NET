@@ -1,0 +1,27 @@
+Student Data:
+-----------------------------
+Name:Sukirtha L
+School:Bharani Park
+Class:12
+------------------------------
+Subjects:
+-------------------------------
+Maths:200
+chemistry:191
+Physics:195
+Bio:180
+Tamil:195
+English:195
+=====================================
+Name:Ram
+School:Bharani Park
+Class:12
+---------------------------
+Subjects:
+-------------------------------
+Maths:190
+chemistry:191
+Physics:165
+Bio:155
+Tamil:195
+English:155
