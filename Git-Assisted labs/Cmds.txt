@@ -1,0 +1,26 @@
+1.git init
+touch hello.js
+touch index.html
+touch helloWorld.java
+git add .
+git 
+git commit -m"Changes have been commited"
+
+2.git log
+git log --oneline
+git revert 
+git checkout Demo
+touch .gitignore
+git push origin master
+git push origin Demo
+git pull origin master
+git pull origin Demo
+git fetch
+git merge master Demo
+git pull --no-commit Demo
+git pull --verbose
+git pull --rebase
+
+3.git version
+git remote -v
+git branch
