@@ -12,8 +12,11 @@ namespace Lib_1
     
     public delegate void DEventHandler(List<Employee1> list);
     public delegate void D1EventHandler(int Empid,List<Employee1> list);
+
+    //1
     public class Dept
     {
+        //3
         static int count = 0;
         private List<Employee1> l;
         public List<Employee1> product1
@@ -48,6 +51,8 @@ namespace Lib_1
         }
         public static event DEventHandler add;
         public static event DEventHandler modify;
+
+        //4
         public void add1(List<Employee1> list)
         {
 
@@ -140,7 +145,7 @@ namespace Lib_1
             {
             Console.WriteLine("Enter emp id:");
             int EmpId=Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Select to modify:\n 1.Empname\n  2.Salary\n 3.Manager");
+                Console.WriteLine("Select to modify:\n 1.Empname\n 2.Salary\n 3.Manager");
                 int f = Convert.ToInt32(Console.ReadLine());
                 switch (f)
                 {
@@ -150,7 +155,7 @@ namespace Lib_1
                             if (item.Id == EmpId)
                             {
 
-                                Console.WriteLine("Enter the new name which is to modify");
+                                Console.WriteLine("Enter the new name to modify:");
                                 item.Empname = Console.ReadLine();
 
                             }
@@ -190,25 +195,47 @@ namespace Lib_1
 
                 
             }
-
+        //6
         public void displaybymgr(List<Employee1> list)
         {
-            Console.WriteLine("Enter the name of the manager to list employees working under his/her: ");
+            Console.WriteLine("Enter the name of the manager to list employees working under him/her: ");
             string s = Console.ReadLine();
             var aw = list.Where(i => i.Managername == s).ToList();
             if (aw.Count > 0)
             {
+                Console.WriteLine("List:");
                 foreach (var item in aw)
                 {
-                    Console.WriteLine("List:");
+                    
                     Console.WriteLine(item.Empname);
                 }
             }
             else
             {
-                Console.WriteLine("No employees is working under his/her !!");
+                Console.WriteLine("No employee is working under him/her !!");
             }
         }
+
+        //7
+
+        public void login(List<Employee1> list)
+        {
+            Console.WriteLine("Enter userid:");
+            string uid=Console.ReadLine();
+            Console.WriteLine("Enter password:");
+            string pass=Console.ReadLine();
+            foreach(var item in list)
+            {
+                if (uid == item.Empname && pass=="Password")
+                {
+                    Console.WriteLine("Login successful !! Welcome "+item.Empname);
+                }
+               
+               
+            }
+
+        }
+        //5
         public void disp(List<Employee1> list)
         {
 

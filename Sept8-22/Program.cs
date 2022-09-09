@@ -19,7 +19,7 @@ namespace Library_pgm
             Console.WriteLine("------------------------------------");
             do
             {
-                Console.WriteLine("Enter your choice: \n 1.Add \n 2.Remove \n 3.Display all details  \n 4.Edit and Update \n 5.Display by manager name");
+                Console.WriteLine("Enter your choice: \n 1.Add \n 2.Remove \n 3.Display all details  \n 4.Edit and Update \n 5.Display by manager name \n 6.Login ");
 
                 int n =Convert.ToInt32(Console.ReadLine());
             switch (n)
@@ -51,6 +51,10 @@ namespace Library_pgm
                     case 5:
                         Dept.add += new DEventHandler(d.displaybymgr);
                         d.displaybymgr(list);
+                        break;
+                    case 6:
+                        Dept.add += new DEventHandler(d.login);
+                        d.login(list);
                         break;
                 }
                 Console.WriteLine("Do u want to continue press y or Y:");
