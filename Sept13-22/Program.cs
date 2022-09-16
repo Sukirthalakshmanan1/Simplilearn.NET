@@ -19,10 +19,77 @@ namespace Movies_1
             customer cc1 = new customer();
             Movie_fn m = new Movie_fn();
             common_options v = new common_options();
-
+            Movie movie = new Movie();
+            User1 user1 = new User1();
             char c,c1,s;
-            do
-            {
+
+            
+
+            Console.WriteLine("Enter type");
+            user1.Type = Console.ReadLine();
+
+            user1.initiate();
+                List<Movie> ss = new List<Movie>();
+                double total = 0;
+                int Count1 = 0;
+            sed:
+                Console.WriteLine("Adding");
+                ss = user1.adding(ss, user1.Type);
+                Count1++;
+                user1.rented = ss;
+                if (ss.Count == Count1)
+                {
+                    Console.WriteLine("Enter the rental year");
+                    int mm = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Enter the rental month");
+                    int mi = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Enter the rental date");
+                    int min = Convert.ToInt32(Console.ReadLine());
+                    DateTime top = new DateTime(mm, mi, min);
+                    user1.rentaldate = top;
+                    Console.WriteLine("Enter the releasing year");
+                    int i = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Enter the releasing month");
+                    int im = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Enter the releasing date");
+                    int imn = Convert.ToInt32(Console.ReadLine());
+                    DateTime pot = new DateTime(i, im, imn);
+                    user1.releasingdate = pot;
+                    Console.WriteLine("Enter the cost");
+                    user1.Cost = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Total cost for this movie", +user1.TotalCost());
+                    total += user1.TotalCost();
+                    Console.WriteLine("Enter Yes to further rental");
+                    string u1 = Console.ReadLine();
+                    if (u1 == "Yes")
+                    {
+                        goto sed;
+                    }
+                }
+                Console.WriteLine("Stocks after rented");
+
+                foreach (var item in user1.dbmovies)
+                {
+                    Console.WriteLine($"{item.Name} {item.stock}");
+                }
+
+                ss = user1.releasing(ss);
+                user1.rented = ss;
+                Console.WriteLine("Total cost" + total);
+                foreach (var item in user1.rented)
+                {
+                    Console.WriteLine(item.Name);
+                }
+
+                Console.ReadLine();
+
+            
+            
+
+
+
+do
+{
                 Console.WriteLine("Enter your choice:\n 1.UserModule \n 2.Admin");
                 int n = Convert.ToInt32(Console.ReadLine());
                 switch (n)
@@ -35,7 +102,7 @@ namespace Movies_1
 
                         do
                         {
-                            Console.WriteLine("Enter your choice:\n 1.Search movies by language \n 2.search by genres \n 3.Category \n 4.Change Password \n 5.view profile ");
+                            Console.WriteLine("Enter your choice:\n 1.Search movies by language \n 2.search by genres \n 3.Category \n 4.Remove \n 5.Dispaly  \n 7.Total cost \n 8.Change Password \n 9.view profile ");
                             int n1 = Convert.ToInt32(Console.ReadLine());
                              switch (n1)
                             {
@@ -49,10 +116,24 @@ namespace Movies_1
                                     string a = Console.ReadLine();
                                     m.GetBygenre(a);
                                     break;
+                                case 3:
+                                    user1.Addition(movie);
+                                    break;
                                 case 4:
-                                    v.change();
+                                    user1.Removing(movie);
                                     break;
                                 case 5:
+                                    user1.Display();
+                                    break;
+                                
+                                
+                                case 7:
+                                    user1.TotalCost();
+                                    break;
+                                case  8:
+                                    v.change();
+                                    break;
+                                case 9:
                                     cc1.GetAll();
                                     break;
 
@@ -64,7 +145,7 @@ namespace Movies_1
                     case 2:
                          do
                         {
-                            Console.WriteLine("Enter your choice:\n 1.Add customer \n 2.Add movies \n 3.search movies \n 4.Update movies \n 5.Approve rentals \n 6.Assign movies \n 7.Pending \n 8.Profile");
+                            Console.WriteLine("Enter your choice:\n 1.Add customer \n 2.Add movies \n 3.search movies \n 4.Profile");
                             int n2 = Convert.ToInt32(Console.ReadLine());
                             switch (n2)
                             {
@@ -81,7 +162,7 @@ namespace Movies_1
                                     string l = Console.ReadLine();
                                     m.GetBylang(l);
                                     break;
-                                case 8:
+                                case 4:
                                     cc1.GetAll();
                                     break;
                             }
