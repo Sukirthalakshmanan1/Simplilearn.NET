@@ -1,0 +1,63 @@
+--1
+create database shopping
+
+
+go
+
+create table  customer
+(
+custid int,custname varchar(20),
+city varchar(20),
+state varchar(20)
+
+)
+go
+create table Product(prodid int ,prodname varchar(20),unitprice int,UnitOfMeasurement int,QtyinStock int)
+go
+create table sales_header(invno int ,invdate date,invamt int,disPercent int)
+
+go
+ drop table customer
+ drop table Product
+ drop table sales_header
+ --2.a,3
+ go
+ create table  customer
+(
+custid int primary key,custname varchar(20),
+city varchar(20),
+state varchar(20)
+
+)
+--2.b,3
+go
+create table Product(prodid int primary key,prodname varchar(20),unitprice int,UnitOfMeasurement int,QtyinStock int)
+--2.c,3
+go
+create table sales_header(invno int primary key,invdate date,invamt int,disPercent int)
+--2.d
+go
+create table sales_detail(
+invno int ,custid int,prodid int,qtysold int)
+
+--2.e
+go
+alter table sales_detail
+add  foreign key (invno) references sales_header(invno)
+--3
+go
+alter table sales_detail
+add  foreign key (prodid) references Product(prodid)
+--4
+go
+ALTER TABLE sales_detail
+DROP COLUMN qtysold
+--5
+go
+ALTER TABLE sales_detail Add qty int
+
+--6
+go
+--ALTER TABLE sales_detail Rename COLUMN qty TO Quantity;
+go
+sp_rename 'sales_detail.qty', 'Quantity', 'COLUMN'

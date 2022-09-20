@@ -1,0 +1,7 @@
+SQL:
+http://sqlfiddle.com/
+
+https://www.w3schools.com/sql/trysql.asp?filename=trysql_asc
+
+c#:
+https://www.codeproject.com/Articles/76153/Six-Important-NET-Concepts-Stack-Heap-Value-Types
