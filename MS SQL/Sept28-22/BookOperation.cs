@@ -45,8 +45,13 @@ namespace BL
 
         }
 
+        public void Bookcount()
+        {
+            ManagementEntities context = new ManagementEntities();
 
-        public List<BLClass1> GetCustomers()
+            Console.WriteLine("Book count : "+context.Books.Count());
+        }
+        public List<BLClass1> GetAllBooks()
         {
             ManagementEntities context = new ManagementEntities();
 

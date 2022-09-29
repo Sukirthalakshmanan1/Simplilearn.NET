@@ -17,7 +17,7 @@ namespace DBFirst
            
             do
             {
-                Console.WriteLine("Enter your choice:\n 1.Add book \n 2.Update book details \n 3.Delete book \n 4.List of books");
+                Console.WriteLine("Enter your choice:\n 1.Add book \n 2.Update book details \n 3.Delete book \n 4.List of books \n 5.Count Books");
                 int n = Convert.ToInt32(Console.ReadLine());
                 switch (n)
                 {
@@ -74,7 +74,7 @@ namespace DBFirst
                         break;
 
                     case 4:
-                        List<BLClass1> customers = co.GetCustomers();
+                        List<BLClass1> customers = co.GetAllBooks();
 
 
                         foreach (var item in customers)
@@ -84,6 +84,9 @@ namespace DBFirst
 
                         Console.WriteLine("--------------------------");
 
+                        break;
+                    case 5:
+                        co.Bookcount();
                         break;
                 }
 
